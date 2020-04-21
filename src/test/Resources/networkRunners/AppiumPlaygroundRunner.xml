@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="iOS - Disney+ - Handset Acceptance" annotations="JDK">
+
+    <test verbose="1" name="DisneyPlus iOS Handset Acceptance" >
+        <classes>
+            <class name="networkTest.ReconfigureWifiTest">
+                <methods>
+                    <include name="revertWifiNetwork"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
