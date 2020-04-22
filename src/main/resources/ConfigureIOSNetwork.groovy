@@ -1,6 +1,6 @@
-job ('Configure iOS Network') {
+job ('Configure iOS Network Job') {
     scm {
-        git('https://github.com/abrashamc/IosNetworkConfig.git') { -> node
+        git('git://github.com/abrashamc/IosNetworkConfig.git') { -> node
             node / gitConfigName('DSL User')
             node / gitConfigEmail('abrasham.chowdhury@disneystreaming.com')
         }
