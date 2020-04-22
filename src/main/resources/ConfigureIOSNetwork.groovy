@@ -5,4 +5,10 @@ job ('Configure iOS Network Job') {
             node / gitConfigEmail('abrasham.chowdhury@disneystreaming.com')
         }
     }
+    triggers {
+        scm('H/15 * * * *')
+    }
+    steps {
+        maven('-e clean test')
+    }
 }
