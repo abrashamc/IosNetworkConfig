@@ -21,3 +21,7 @@ d
 4src/main/resources/selenium_grid/nodeconfig_ios.json,1/0/10e66df5d820246ea8666e8f6ff35fe812bc823e
 a
 1src/test/java/webTest/disneyPlusWebsiteSmoke.java,1/b/1b3c6f5883d78fbec66e4d80c64f1371222f8b52
+c
+3src/test/Resources/networkRunners/appLaunchTest.xml,5/5/5569ce2864494ddea9fcc27326cd62caa7e2ed9d
+\
+,src/test/java/networkTest/AppLaunchTest.java,4/a/4a20a3bce4b69269e8a2af84146eeafe08660ab0
