@@ -1,0 +1,6 @@
+data/AppiumData$ButtonStatus.class
+data/AppiumData$Attributes.class
+data/AppiumData$SystemBundles.class
+http/httpconnection.class
+http/httpconnection$ParameterStringBuilder.class
+data/AppiumData.class

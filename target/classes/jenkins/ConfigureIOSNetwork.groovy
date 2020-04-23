@@ -1,3 +1,5 @@
+package jenkins
+
 job('Configure iOS Network Job') {
     scm {
         git('git://github.com/abrashamc/IosNetworkConfig.git') { -> node

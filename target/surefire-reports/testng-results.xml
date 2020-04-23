@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="1" failed="0" ignored="0" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="23638" started-at="2020-04-23T11:37:31 EDT" finished-at="2020-04-23T11:37:55 EDT">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="23638" started-at="2020-04-23T11:37:31 EDT" finished-at="2020-04-23T11:37:55 EDT">
+      <class name="networkTest.ReconfigureWifiTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:networkTest.ReconfigureWifiTest@6d7b4f4c]" name="setUp" is-config="true" duration-ms="7431" started-at="2020-04-23T11:37:31 EDT" finished-at="2020-04-23T11:37:39 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="SKIP" signature="revertWifiNetwork()[pri:0, instance:networkTest.ReconfigureWifiTest@6d7b4f4c]" name="revertWifiNetwork" duration-ms="15153" started-at="2020-04-23T11:37:39 EDT" finished-at="2020-04-23T11:37:54 EDT">
+          <exception class="org.testng.SkipException">
+            <message>
+              <![CDATA[King's Landing is preset network, no need to execute script]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.SkipException: King's Landing is preset network, no need to execute script
+at networkTest.ReconfigureWifiTest.revertWifiNetwork(ReconfigureWifiTest.java:170)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:134)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:597)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:816)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.SkipException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- revertWifiNetwork -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:networkTest.ReconfigureWifiTest@6d7b4f4c]" name="tearDown" is-config="true" duration-ms="1032" started-at="2020-04-23T11:37:54 EDT" finished-at="2020-04-23T11:37:55 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- networkTest.ReconfigureWifiTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

@@ -8,6 +8,7 @@ import io.appium.java_client.MobileBy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,29 +19,32 @@ import org.testng.annotations.Test;
 
 class ReconfigureWifiTest extends AppiumData {
 
-    private IOSDriver<WebElement> driver;
+    private static RemoteWebDriver driver;
     private final static String SETTINGS = "com.apple.Preferences";
     private final static By WiFI_SWITCH = By.xpath("//XCUIElementTypeSwitch[@name='Wi-Fi']");
     private final static String SELECTED_WIFI = "//XCUIElementTypeStaticText[@name=\"%s\"]/following-sibling::XCUIElementTypeOther/XCUIElementTypeImage";
     private final static String WIFI_NETWORK_NAME = "King's Landing";
     private final static By WiFi = MobileBy.AccessibilityId("Wi-Fi");
+    private final static By WiFi_2 = By.xpath("//XCUIElementTypeButton[@name=\"Wi-Fi\"]");
     private final static By SETTINGS_ICON = By.xpath("//*[@name='Home screen icons']//*[@name='Settings']");
 
     @BeforeTest
-    public void setUp() throws MalformedURLException {
+    public void setUp() {
         int maxAttempts = 5;
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", "iOS");
+        capabilities.setCapability("platform", "iOS");
         capabilities.setCapability("platformVersion", "13.3.1");
-        capabilities.setCapability("deviceName", "iPhone X");
+        capabilities.setCapability("deviceName", "iPhone_X");
         capabilities.setCapability("udid", "f5d9ac468cacdc7915f69f060a01430746f8283d");
-        capabilities.setCapability("automationName", "XCUITest");
-        capabilities.setCapability("launchTimeout", "20000");
-        capabilities.setCapability("clearSystemFiles", "true");
+//        capabilities.setCapability("wdaLocalPort", "8100");
+//        capabilities.setCapability("automationName", "XCUITest");
+//        capabilities.setCapability("launchTimeout", "20000");
+//        capabilities.setCapability("clearSystemFiles", "true");
         capabilities.setCapability("app", SystemBundles.Settings.getBundleId());
         do {
             try {
-                driver = new IOSDriver<>(new URL("http://localhost:4723/wd/hub"), capabilities);
+                driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
                 break;
             } catch (Exception e) {
                 System.out.println("Unable to initiate driver due to: " + e + "retrying, max attempts remaining: " + maxAttempts);
@@ -52,18 +56,18 @@ class ReconfigureWifiTest extends AppiumData {
         WebDriverWait wait = new WebDriverWait(driver, explicitWait);
             do{
                 try {
-                    driver.findElement(WiFi).click();
+                    driver.findElement(WiFi_2).click();
                 } catch (Exception e) {
                     System.out.println("Unable to click Wifi in Settings page due to: " + e + "\nTrying through Home Screen Quick Actions");
                     ImmutableMap<String, String> pressHome = ImmutableMap.of("name", "home");
-                    driver.executeScript("mobile: pressButton", pressHome);
-                    driver.executeScript("mobile: pressButton", pressHome);
+                    ((JavascriptExecutor)driver).executeScript("mobile: pressButton", pressHome);
+                    ((JavascriptExecutor)driver).executeScript("mobile: pressButton", pressHome);
                     WebElement settingsIcon = wait.until(ExpectedConditions.presenceOfElementLocated(SETTINGS_ICON));
-                    driver.executeScript("mobile: touchAndHold", ImmutableMap.of(
+                    ((JavascriptExecutor)driver).executeScript("mobile: touchAndHold", ImmutableMap.of(
                             "element", ((RemoteWebElement)settingsIcon).getId(),
                             "duration", 2.0
                     ));
-                    driver.findElement(WiFi).click();
+                    driver.findElement(WiFi_2).click();
                 }
             } while (!wait.until(ExpectedConditions.presenceOfElementLocated(WiFI_SWITCH)).isDisplayed() && --maxAttempts > 0);
     }

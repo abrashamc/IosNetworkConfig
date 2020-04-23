@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="iOS - Disney+ - Web Smoke" annotations="JDK" parallel="methods" thread-count="2">
+
+    <test verbose="1" name="DisneyPlus Web Smoke" >
+        <classes>
+            <class name="webTest.disneyPlusWebsiteSmoke">
+                <methods>
+                    <include name="launchDisneyWeb"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

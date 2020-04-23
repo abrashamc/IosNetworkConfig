@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="iOS - NHL - Handset Acceptance" annotations="JDK">
+
+    <test verbose="1" name="NHL iOS Handset Acceptance" >
+        <classes>
+            <class name="networkTest.AppLaunchTest">
+                <methods>
+                    <include name="appLaunch"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
